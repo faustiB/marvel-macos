@@ -17,19 +17,7 @@ struct ComicsListView: View {
           .progressViewStyle(.circular)
       } else {
         List(comicsViewModel.comics, id: \.id) { comic in
-          HStack {
-            Text(comic.title)
-              .font(.headline)
-            
-            Spacer()
-            
-            Text(String(comic.prices[0].price))
-              .italic()
-            
-            Image(systemName: "chevron.right")
-              .foregroundColor(.red)
-          }
-          .padding(16)
+          ComicListRowView(comic: comic)
         }
         .listStyle(.bordered)
       }
@@ -40,6 +28,26 @@ struct ComicsListView: View {
         await comicsViewModel.loadComics()
       }
     }
+  }
+}
+
+struct ComicListRowView: View {
+  var comic: Comic
+  
+  var body: some View {
+    HStack {
+      Text(comic.title)
+        .font(.headline)
+      
+      Spacer()
+      
+      Text(String(comic.prices[0].price))
+        .italic()
+      
+      Image(systemName: "chevron.right")
+        .foregroundColor(.blue)
+    }
+    .padding(16)
   }
 }
 
