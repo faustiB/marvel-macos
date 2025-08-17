@@ -26,7 +26,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
   ///
   /// - Parameter notification: A notification sent by the system when the app has launched.
   func applicationDidFinishLaunching(_ notification: Notification) {
-    let rootView = AnyView(ContentView())
+    let rootView = AnyView(ComicsListView())
     systemBarHelper.setupBarItem(rootView: rootView)
     systemBarHelper.showWindow()
   }
