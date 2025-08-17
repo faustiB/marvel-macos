@@ -58,14 +58,22 @@ class ComicsViewModel: ObservableObject {
     isLoading = false
   }
   
+  /// Groups a list of comics by their creators.
+  ///
+  /// - Parameter comics: The list of comics to group.
+  /// - Returns: An array of `CreatorGroup` representing each creator and their comics.
   func groupComicsByCreator(comics: [Comic]) -> [CreatorGroup] {
     var mapping: [String: [Comic]] = [:]
     for comic in comics {
+      // Extract creators names that are not empty.
       let creatorNames = comic.creators.items.map { $0.name }.filter { !$0.isEmpty }
+      
+      // If there aren't any creators for the comic, stored under unkwon.
       if creatorNames.isEmpty {
         mapping["(Unknown)", default: []].append(comic)
       } else {
-        for name in Set(creatorNames) { 
+        // Grouping the comic under each creator. 
+        for name in Set(creatorNames) {
           mapping[name, default: []].append(comic)
         }
       }
