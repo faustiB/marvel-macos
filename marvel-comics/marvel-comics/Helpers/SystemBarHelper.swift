@@ -97,4 +97,13 @@ final class SystemBarHelper: NSObject, NSWindowDelegate {
     }
   }
   
+  //  MARK: - NSWindowDelegate
+  
+  /// Intercept the close action to hide the window instead of fully closing it.
+  /// This keeps the app running in the status bar and allows quick reopen.
+  func windowShouldClose(_ sender: NSWindow) -> Bool {
+    sender.orderOut(self)
+    return false
+  }
+  
 }
