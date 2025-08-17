@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+  @StateObject private var comicsViewModel = ComicsViewModel()
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -16,6 +17,11 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .onAppear {
+          Task {
+            await comicsViewModel.loadComics()
+          }
+        }
     }
 }
 

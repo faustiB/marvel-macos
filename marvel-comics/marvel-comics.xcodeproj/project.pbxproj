@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8939BD702E523086008A4619 /* keys.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8939BD6F2E523086008A4619 /* keys.xcconfig */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		8939BC9F2E522399008A4619 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,11 +31,25 @@
 		8939BC902E522397008A4619 /* marvel-comics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "marvel-comics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8939BC9E2E522399008A4619 /* marvel-comicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "marvel-comicsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8939BCA82E522399008A4619 /* marvel-comicsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "marvel-comicsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8939BD6F2E523086008A4619 /* keys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = keys.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		8939BD762E52322C008A4619 /* Exceptions for "marvel-comics" folder in "marvel-comics" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 8939BC8F2E522397008A4619 /* marvel-comics */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		8939BC922E522397008A4619 /* marvel-comics */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8939BD762E52322C008A4619 /* Exceptions for "marvel-comics" folder in "marvel-comics" target */,
+			);
 			path = "marvel-comics";
 			sourceTree = "<group>";
 		};
@@ -75,6 +93,7 @@
 		8939BC872E522397008A4619 = {
 			isa = PBXGroup;
 			children = (
+				8939BD6F2E523086008A4619 /* keys.xcconfig */,
 				8939BC922E522397008A4619 /* marvel-comics */,
 				8939BCA12E522399008A4619 /* marvel-comicsTests */,
 				8939BCAB2E522399008A4619 /* marvel-comicsUITests */,
@@ -212,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8939BD702E523086008A4619 /* keys.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +291,7 @@
 /* Begin XCBuildConfiguration section */
 		8939BCB02E522399008A4619 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8939BD6F2E523086008A4619 /* keys.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -335,6 +356,7 @@
 		};
 		8939BCB12E522399008A4619 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8939BD6F2E523086008A4619 /* keys.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -391,6 +413,7 @@
 		};
 		8939BCB32E522399008A4619 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8939BD6F2E523086008A4619 /* keys.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -402,8 +425,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_FILE = "marvel-comics/Info.plist";
 				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -420,6 +444,7 @@
 		};
 		8939BCB42E522399008A4619 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8939BD6F2E523086008A4619 /* keys.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -431,8 +456,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_FILE = "marvel-comics/Info.plist";
 				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
