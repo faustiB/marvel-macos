@@ -22,8 +22,7 @@ protocol APIManagerProtocol {
 
 /// A concrete implementation of `APIManagerProtocol` for communicating with the Marvel Comics API.
 ///
-/// `APIManager` handles authentication, builds requests, and decodes JSON responses
-/// from the Marvel API.
+/// `APIManager` handles authentication, builds requests, and decodes JSON responses  from the Marvel API.
 final class APIManager: APIManagerProtocol {
   /// The URL session used for making network requests.
   private let session: URLSession
