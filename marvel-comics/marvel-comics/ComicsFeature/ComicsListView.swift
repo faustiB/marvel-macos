@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ComicsListView: View {
   @StateObject private var comicsViewModel = ComicsViewModel()
+  @State private var selectedComic: Comic? = nil
   
   var body: some View {
     VStack {
@@ -17,7 +18,11 @@ struct ComicsListView: View {
           .progressViewStyle(.circular)
       } else {
         List(comicsViewModel.comics, id: \.id) { comic in
-          ComicListRowView(comic: comic)
+          Button {
+            selectedComic = comic
+          } label: {
+            ComicListRowView(comic: comic)
+          }
         }
         .listStyle(.bordered)
       }
@@ -27,6 +32,10 @@ struct ComicsListView: View {
       Task {
         await comicsViewModel.loadComics()
       }
+    }
+    .sheet(item: $selectedComic) { comic in
+      ComicListSheetView(selectedComic: $selectedComic, comic: comic)
+        .padding()
     }
   }
 }
@@ -50,6 +59,7 @@ struct ComicListRowView: View {
     .padding(16)
   }
 }
+
 
 #Preview {
   ComicsListView()
