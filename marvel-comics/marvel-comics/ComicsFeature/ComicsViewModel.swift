@@ -15,6 +15,9 @@ class ComicsViewModel: ObservableObject {
   /// The list of comics currently loaded from the Marvel API.
   @Published var comics: [Comic] = []
   
+  /// The list of creators with the comics grouped.
+  @Published var creatorGroups: [CreatorGroup] = []
+  
   /// A Boolean value that indicates whether data is currently being loaded.
   @Published var isLoading = false
   
@@ -47,10 +50,26 @@ class ComicsViewModel: ObservableObject {
     do {
       let response = try await interactor.fetchComics(limit: 20, offset: 0)
       comics = response.data.results
+      creatorGroups = groupComicsByCreator(comics: comics)
     } catch {
       errorMessage = error.localizedDescription
     }
     
     isLoading = false
+  }
+  
+  func groupComicsByCreator(comics: [Comic]) -> [CreatorGroup] {
+    var mapping: [String: [Comic]] = [:]
+    for comic in comics {
+      let creatorNames = comic.creators.items.map { $0.name }.filter { !$0.isEmpty }
+      if creatorNames.isEmpty {
+        mapping["(Unknown)", default: []].append(comic)
+      } else {
+        for name in Set(creatorNames) { 
+          mapping[name, default: []].append(comic)
+        }
+      }
+    }
+    return mapping.map { CreatorGroup(creatorName: $0.key, comics: $0.value) }
   }
 }

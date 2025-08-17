@@ -52,3 +52,9 @@ struct CreatorSummary: Codable {
   let name: String
   let role: String
 }
+
+struct CreatorGroup: Identifiable {
+  let id = UUID()
+  let creatorName: String
+  let comics: [Comic]
+}

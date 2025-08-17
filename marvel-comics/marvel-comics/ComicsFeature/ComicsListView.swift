@@ -17,11 +17,21 @@ struct ComicsListView: View {
         ProgressView()
           .progressViewStyle(.circular)
       } else {
-        List(comicsViewModel.comics, id: \.id) { comic in
-          Button {
-            selectedComic = comic
-          } label: {
-            ComicListRowView(comic: comic)
+        List {
+          ForEach(comicsViewModel.creatorGroups, id: \.id) { creatorGroup in
+            Section {
+              ForEach(creatorGroup.comics, id: \.id) { comic in
+                Button {
+                  selectedComic = comic
+                } label: {
+                  ComicListRowView(comic: comic)
+                }
+              }
+            } header: {
+              Text(creatorGroup.creatorName)
+                .font(.headline)
+                .fontWeight(.bold)
+            }
           }
         }
         .listStyle(.bordered)
